@@ -21,15 +21,16 @@ exports.buscarPorId = (req, res) => {
 exports.adicionar = (req, res) => {
   const {nome, plataforma, ano_lancamento} = req.body
 
+  if (nome === null)
+    return res.status(400).send('O nome do jogo não pode ser nulo!')
+
   if (!nome || !plataforma || !ano_lancamento)
     return res.status(400).send('Todos os campos são obrigatórios.')
 
-  if (ano_lancamento > new Date())
+  if (ano_lancamento > new Date().getFullYear())
     return res
       .status(400)
-      .send('Ano de lancamento nao pode ser maior que o ano atual')
-
-  console.log(ano_lancamento, new Date())
+      .send('Ano de lancamento não pode ser uma data futura.')
 
   jogoModel.inserir(req.body, err => {
     if (err) return res.status(500).send('Erro ao adicionar jogo')
@@ -44,6 +45,7 @@ exports.atualizar = (req, res) => {
   if (!nome || !plataforma || !ano_lancamento) {
     return res.status(400).send('Todos os campos são obrigatórios.')
   }
+
   jogoModel.atualizar(req.params.id, req.body, (err, result) => {
     if (err) return res.status(500).send('Erro ao atualizar jogo')
 
