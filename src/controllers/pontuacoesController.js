@@ -7,7 +7,7 @@ exports.listarRanking = (req, res) => {
     if (err) return res.status(500).send('Erro ao listar ranking desse jogo.')
 
     if (results.length === 0)
-      return res.status(404).send('Esse jogo ainda nao possui pontuações.')
+      return res.status(404).send('Esse jogo ainda não possui pontuações.')
 
     res.json(results)
   })
