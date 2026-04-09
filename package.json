@@ -1,14 +1,11 @@
 {
   "name": "trabalho_dsw",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "migrate": "node src/database/scripts/migrate.js",
-    "seed": "node src/database/scripts/seed.js",
-    "rollback": "node src/database/scripts/rollback.js"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",

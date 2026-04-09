@@ -15,7 +15,11 @@ exports.adicionar = (req, res) => {
     return res.status(400).send('Todos os campos são obrigatórios.')
 
   jogadoresModel.inserir(req.body, err => {
-    if (err) return res.status(500).send('Erro ao adicionar jogador')
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY')
+        return res.status(400).send('Nickname já existe no sistema.')
+      return res.status(500).send('Erro ao adicionar jogador')
+    }
 
     res.status(201).send('Jogador adicionado com sucesso!')
   })

@@ -29,10 +29,9 @@ projeto/
 │   │   └── pontuacoesModel.js
 │   ├── config/          # Configurações
 │   │   └── db.js
-│   └── app.js           # Configuração principal do Express
-├── server.js            # Ponto de entrada da aplicação
-├── database/            # Scripts SQL
-│   └── db.sql       # Criação das tabelas
+│   └── server.js        # Ponto de entrada da aplicação
+├── src/database/        # Script SQL
+│   ├── db.sql
 ├── .env                 # Variáveis de ambiente
 ├── package.json
 └── README.md
@@ -46,7 +45,7 @@ projeto/
 CREATE DATABASE jogos_retro;
 ```
 
-2. Execute o script disponível em `database/db.sql` para criar as tabelas necessárias.
+2. Execute o script disponível em `src/database/db.sql` para criar as tabelas necessárias.
 
 ## Instalação e Execução
 
